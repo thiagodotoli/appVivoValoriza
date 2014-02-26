@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+
+	<!-- Nao necessita alterar no momento da geracao do pacote para deploy -->
+	<!-- Utilizar o target apropriado do ANT para o empacotamento -->
+	<!-- que o arquivo jboss-web.xml correto será utilizado -->
+
+	
+	<!-- Desenvolvimento -->  
+	<context-root>/vivovaloriza-m</context-root>
+	<virtual-host>localhost</virtual-host>
+</jboss-web>

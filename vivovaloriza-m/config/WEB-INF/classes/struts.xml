@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+ "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+ "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<package name="default" namespace="/" extends="struts-default">
+
+		<action name="autenticarParticipante" class="br.com.vivovaloriza.mobile.action.AutenticarParticipanteAction">
+			<result name="SUCCESS" type="redirectAction">home</result>
+			<result name="LOGIN">/</result>
+		</action>
+
+		<action name="goAutenticarParticipanteMovel" class="br.com.vivovaloriza.mobile.action.VerificaMovelAction">
+			<result name="SUCCESS">/web/jsp/verificaMovel.jsp</result>
+		</action>
+		
+		<action name="goAutenticarParticipanteFixo" class="br.com.vivovaloriza.mobile.action.VerificaFixoAction">
+			<result name="SUCCESS">index.jsp</result>
+		</action>
+		
+		<action name="home" class="br.com.vivovaloriza.mobile.action.HomeAction">
+			<result name="SUCCESS">/web/jsp/home.jsp</result>
+		</action>
+
+		<!-- CINEMARK -->
+		<action name="exibirCinemark" class="br.com.vivovaloriza.mobile.action.CinemarkAction">
+			<result name="SUCCESS">/web/jsp/cinemark/destaque.jsp</result>
+		</action>
+		<action name="exibirParcDestqCinemarkRegulamento" class="br.com.vivovaloriza.mobile.action.CinemarkAction">
+			<result name="SUCCESS">/web/jsp/cinemark/regulamento.jsp</result>
+		</action>
+	
+		<!-- ESPETACULOS COM DESCONTO -->
+		<action name="listarEspetaculosDesconto" class="br.com.vivovaloriza.mobile.action.EspetaculosDescontoListarAction">
+			<result name="SUCCESS">/web/jsp/descontos/listar.jsp</result>
+		</action>
+		<action name="exibirEspetaculoDesconto" class="br.com.vivovaloriza.mobile.action.EspetaculosDescontoExibirAction">
+			<result name="SUCCESS">/web/jsp/descontos/detalhar-confirmar.jsp</result>
+		</action>
+		<action name="emitirVoucherEspetaculoDesconto" class="br.com.vivovaloriza.mobile.action.EspetaculosDescontoVoucherAction">
+			<result name="SUCCESS">/web/jsp/descontos/voucher.jsp</result>
+		</action>
+
+		<!-- INGRESSOS GRATIS -->
+		<action name="obterFiltroIngressosGratis" class="br.com.vivovaloriza.mobile.action.IngressosGratisFiltrarAction">
+			<result name="SUCCESS">/web/jsp/ingressos/filtrar.jsp</result>
+		</action>
+		<action name="obterEventosDisponiveis" class="br.com.vivovaloriza.mobile.action.IngressosGratisListarAction">
+			<result name="SUCCESS">/web/jsp/ingressos/listar.jsp</result>
+		</action>
+		<action name="obterDetalheEvento" class="br.com.vivovaloriza.mobile.action.IngressosGratisExibirAction">
+			<result name="SUCCESS">/web/jsp/ingressos/detalhar-confirmar.jsp</result>
+		</action>
+		<action name="reservarVagaEvento" class="br.com.vivovaloriza.mobile.action.IngressosGratisReservarAction">
+			<result name="SUCCESS">/web/jsp/ingressos/voucher.jsp</result>
+		</action>
+		<action name="cancelarReservaVagaEvento" class="br.com.vivovaloriza.mobile.action.IngressosGratisCancelarAction">
+			<result name="SUCCESS" type="redirectAction">obterEventosDisponiveis</result>
+		</action>
+
+		<!-- PARCEIROS -->
+		<action name="obterFiltrosParceiro" class="br.com.vivovaloriza.mobile.action.ParceiroFiltrarAction">
+			<result name="SUCCESS">/web/jsp/parceiros/filtrar.jsp</result>
+		</action>
+		<action name="obterParceirosMural" class="br.com.vivovaloriza.mobile.action.ParceiroListarAction">
+			<result name="SUCCESS">/web/jsp/parceiros/listar.jsp</result>
+		</action>
+		<action name="obterParceiroRegulamento" class="br.com.vivovaloriza.mobile.action.ParceiroExibirAction">
+			<result name="SUCCESS">/web/jsp/parceiros/detalhar-confirmar.jsp</result>
+		</action>
+		<action name="obterParceiroVoucher" class="br.com.vivovaloriza.mobile.action.ParceiroVoucherAction">
+			<result name="SUCCESS">/web/jsp/parceiros/voucher.jsp</result>
+		</action>
+
+		<action name="pageNotFound" class="br.com.vivovaloriza.mobile.action.ErrorAction">
+			<result name="SUCCESS">/web/jsp/404.html</result>
+		</action>
+
+	</package>
+</struts>

@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<!-- ****************************************************
+  Build de template para os projetos.
+ Definir: Classpath (quais classes devem ser levadas)
+***************************************************** -->
+
+<project name="default" default="init">
+
+	<description>
+		MOBILE + STRUTS 2 + JBOSS 5.1
+	</description>
+
+	<property environment="env" />
+	<property file="build.properties" />
+	<property name="lib.home" location="${external.resources}/jboss/common/lib" />
+	<property name="workdir.home" location="${web.workdir}" />
+
+	<!-- Propriedades que definem a estrutura do projeto web  -->
+	<property name="project.home" location="../.." />
+	<property name="project.src.java" location="${project.home}/src" />
+	<property name="project.src.junit" location="${project.home}/srcjunit" />
+	<property name="project.src.junit.tmp" location="${project.src.junit}/tmp" />
+	<property name="project.sql" location="../../../../Dados" />
+	<property name="project.sql.ddl" location="${project.sql}/DDL" />
+	<property name="project.sql.plsql" location="${project.sql}/PL_SQL" />
+	<property name="project.docs" location="../../../../Docs" />
+	<property name="project.docs.api" location="${project.docs}/api" />
+	<property name="project.docs.relatorios" location="${project.docs}/relatorios" />
+	<property name="project.docs.imagens" location="${project.docs}/imagens" />
+	<property name="project.docs.notasrelease" location="${project.docs}/notasrelease" />
+	<property name="project.docs.guia" location="${project.docs}/guia" />
+	<property name="project.test.build" location="${workdir.home}/test/classes" />
+
+	<!--  Estrutura da aplicacao web - src -->
+	<property name="web" location="${project.home}/web" />
+	<property name="web.inf" location="${project.home}/config/WEB-INF" />
+	<property name="web.meta.inf" location="${project.home}/config/META-INF" />
+	<property name="web.config.resource" location="${project.home}/config/resource" />
+	<property name="web.lib" location="${web.inf}/lib"/>
+	<property name="web.jsp" location="${web}/jsp" />
+	<property name="web.themes" location="${web}/themes" />
+	<property name="web.app" location="${web}/app" />
+	<property name="web.js" location="${web}/js" />
+	<property name="web.lib.js" location="${web}/lib" />
+	<property name="web.assets" location="${web}/assets" />
+	<property name="web.dialog" location="${web}/dialog" />
+
+	<!--  Estrutura da aplicacao web - work -->
+	<property name="work.web" location="${workdir.home}/web" />
+	<property name="work.web.inf" location="${work.web}/WEB-INF" />
+	<property name="work.web.meta.inf" location="${work.web}/META-INF" />
+	<property name="work.web.classes" location="${work.web.inf}/classes" />
+	<property name="work.web.classes.resources" location="${work.web.inf}/classes/resources"/>
+	<property name="work.web.lib" location="${work.web.inf}/lib" />
+	<property name="work.web.jsp" location="${work.web}/web/jsp"  />
+	<property name="work.web.themes" location="${work.web}/web/themes"  />
+	<property name="work.web.app" location="${work.web}/web/app"  />
+	<property name="work.web.js" location="${work.web}/web/js"  />
+	<property name="work.web.lib.js" location="${work.web}/web/lib"  />
+	<property name="work.web.assets" location="${work.web}/web/assets"  />
+	<property name="work.web.dialog" location="${work.web}/web/dialog"  />
+	
+	<!-- Pasta de deployment -->
+	<property name="project.deploy" location="${project.home}/deploy"/>
+
+	<!-- ClassPath -->
+	<path id="project.classpath">
+		<fileset dir="${lib.home}" defaultexcludes="true">
+			<include name="**/*.jar"/>
+			<include name="**/*.zip"/>
+		</fileset>
+		<fileset dir="${web.lib}" defaultexcludes="true">
+			<include name="**/*.jar"/>
+			<include name="**/*.zip"/>
+		</fileset>
+	</path>
+
+	<!-- target: init -->
+	<target name="init" description="==> inicializa o processo.">
+		<tstamp/>
+	</target>
+
+	<!-- target: create_structure -->
+  <target name="create_structure" depends="init" description="==> Cria a estrutura de diretorios do projeto default.">
+  	<mkdir dir="${project.deploy}/"/>
+
+  	<!-- Pastas de fontes -->
+  	<mkdir dir="${project.src.java}"/>
+  	<mkdir dir="${project.src.junit}"/>
+  	<mkdir dir="${project.src.junit.tmp}"/>
+  	<mkdir dir="${project.test.build}"/>
+  	<mkdir dir="${project.sql}"/>
+  	<mkdir dir="${project.sql.ddl}"/>
+  	<mkdir dir="${project.sql.plsql}"/>
+
+  	<!-- Pastas da aplicacao - src -->
+  	<mkdir dir="${web}" />
+  	<mkdir dir="${web.lib}" />
+  	<mkdir dir="${web.jsp}" />
+  	<mkdir dir="${web.themes}" />
+  	<mkdir dir="${web.app}" />
+  	<mkdir dir="${web.js}" />
+  	<mkdir dir="${web.lib.js}" />
+  	<mkdir dir="${web.assets}" />
+   	<mkdir dir="${web.dialog}" />
+  	
+  	<!-- Pastas de documentacao -->
+  	<mkdir dir="${project.docs}"/>
+  	<mkdir dir="${project.docs.api}"/>
+  	<mkdir dir="${project.docs.guia}"/>
+  	<mkdir dir="${project.docs.imagens}"/>
+  	<mkdir dir="${project.docs.notasrelease}"/>
+  	<mkdir dir="${project.docs.relatorios}"/>
+
+  	<!-- Pastas da aplicacao - work -->
+  	<mkdir dir="${work.web}" />
+  	<mkdir dir="${work.web.inf}" />
+  	<mkdir dir="${work.web.meta.inf}" />
+  	<mkdir dir="${work.web.classes}" />
+ 		<mkdir dir="${work.web.classes.resources}" />
+  	<mkdir dir="${work.web.lib}" />
+  	<mkdir dir="${work.web.jsp}" />
+  	<mkdir dir="${work.web.themes}" />
+  	<mkdir dir="${work.web.app}" />
+  	<mkdir dir="${work.web.js}" />
+  	<mkdir dir="${work.web.lib.js}" />
+  	<mkdir dir="${work.web.assets}" />
+  	<mkdir dir="${work.web.dialog}" />
+
+  	<!-- Pastas de testes unitários -->
+  	<mkdir dir="${project.test.build}" />
+  </target>
+
+	<!-- target: clean -->
+  <target name="clean" depends="init" description="==> Limpa o build.">
+		<delete>
+			<fileset dir="${work.web.classes}" defaultexcludes="true">
+				<include name="**/*.*"/>
+			</fileset>
+		</delete>
+
+		<delete dir="${project.deploy}" />
+		<delete dir="${project.docs.api}"/>
+		<delete dir="${project.docs.relatorios}"/>
+		<delete dir="${project.test.build}"/>
+		<delete dir="${project.src.junit.tmp}"/>
+		<delete dir="${work.web}" />
+		<delete dir="${work.web.inf}" />
+		<delete dir="${work.web.meta.inf}" />
+		<delete dir="${work.web.classes}" />
+ 		<delete dir="${work.web.classes.resources}" />
+		<delete dir="${work.web.lib}" />
+		<delete dir="${work.web.jsp}" />
+		<delete dir="${work.web.themes}" />
+		<delete dir="${work.web.app}" />
+		<delete dir="${work.web.js}" />
+		<delete dir="${work.web.lib.js}" />
+		<delete dir="${work.web.assets}" />
+		<delete dir="${work.web.dialog}" />
+  </target>
+
+	<!-- target: compile -->
+	<target name="compile" depends="create_structure" description="==> Compila a aplicacao">
+		<javac encoding="ISO-8859-1" classpathref="project.classpath" debug="${debug}" source="1.6" srcdir="${project.src.java}" destdir="${work.web.classes}"/>
+
+		<copy file="${web.jsp}/index.jsp" todir="${work.web}"/>
+
+		<copy description="Copia os arquivos nao fonte para o diretorio de classes." todir="${work.web.classes}">
+			<fileset dir="${project.src.java}" defaultexcludes="false">
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+
+  	<copy description="Copia os arquivos de configuracao (WEB-INF)" todir="${work.web.inf}">
+  		<fileset dir="${web.inf}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  			<exclude name="jboss-web*.xml"/>    
+  			<exclude name="web*.xml"/>    
+  		</fileset>
+		</copy>
+		<copy file="${web.inf}/jboss-web-homo.xml" tofile="${work.web.inf}/jboss-web.xml"/>  
+		<copy file="${web.inf}/web-dese-homo.xml" tofile="${work.web.inf}/web.xml"/>  
+
+  	<copy description="Copia os arquivos de configuracao (META-INF)" todir="${work.web.meta.inf}">
+  		<fileset dir="${web.meta.inf}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+		</copy>
+
+  	<copy description="Copia os arquivos de themes" todir="${work.web.themes}">
+  		<fileset dir="${web.themes}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+    </copy>
+
+  	<copy description="Copia os arquivos de app" todir="${work.web.app}">
+  		<fileset dir="${web.app}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+    </copy>
+
+  	<copy description="Copia os arquivos de javascript" todir="${work.web.js}">
+  		<fileset dir="${web.js}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+    </copy>
+
+		<copy description="Copia os arquivos de lib" todir="${work.web.lib.js}">
+  		<fileset dir="${web.lib.js}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+    </copy>
+
+  	<copy description="Copia os arquivos de assets" todir="${work.web.assets}">
+  		<fileset dir="${web.assets}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+    </copy>
+
+  	<copy description="Copia os arquivos de dialog" todir="${work.web.dialog}">
+  		<fileset dir="${web.dialog}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+    </copy>
+
+  	<copy description="Copia os arquivos de configuracao (Resource)" todir="${work.web.classes.resources}">
+  		<fileset dir="${web.config.resource}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+		</copy>
+
+  	<copy description="Copia os arquivos jsps" todir="${work.web.jsp}">
+  		<fileset dir="${web.jsp}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  			<exclude name="**/index.jsp"/>
+  		</fileset>
+		</copy>
+
+		<copy description="Copia os arquivos de biblioteca" todir="${work.web.lib}">
+  		<fileset dir="${web.lib}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+    </copy>
+
+	</target>
+
+	<!-- target: deploy -->
+  <target name="deploy" depends="compile" description="==> Cria o war de deployment do projeto.">
+		<war destfile="${project.deploy}/${war.name}.war"
+		     basedir="${work.web}"
+		     webxml="${work.web.inf}/web.xml">
+		     <exclude name="${work.web.inf}/web.xml"/>
+		</war>
+		<copy file="${project.deploy}/${war.name}.war" todir="${deploy.home}"/>
+  </target>
+
+	<!-- target: javadoc -->
+	<target name="javadoc" depends="compile" description="==> Gera a documentacao da api.">
+	  <javadoc destdir="${project.docs.api}" overview="${project.src.java}/overview.html">
+			<header>
+				<![CDATA[ <img src="./resources/logo.gif"> ]]>
+			</header>
+
+			<doctitle>
+		  	<![CDATA[
+		  	Projeto Modelo 1.0<br>
+		  	API Specification
+				]]>
+			</doctitle>
+
+			<footer>
+		  	<![CDATA[
+		  	<b><i>Desenvolvido por Kennen<sup>tm</sup></i></b>
+		  	]]>
+			</footer>
+
+			<classpath>
+		  	<path refid="project.classpath"/>
+				<pathelement location="${java.class.path}"/>
+			</classpath>
+
+			<fileset dir="${project.src.java}" defaultexcludes="true">
+		  	<include name="**/*.java"/>
+			</fileset>
+	 	</javadoc>
+	</target>
+
+	<!-- target: filterUnit -->
+  <target name="filterUnit">
+  	<filter filtersfile="filter.properties" />
+  	<copy todir="${project.src.junit.tmp}" filtering="true" >
+  		<fileset dir="${project.src.junit}"/>
+  	</copy>
+  </target>
+
+	<!-- target: junit_compile -->
+	<target name="junit_compile" depends="create_structure, compile, filterUnit">
+  	<javac classpathref="project.classpath" debug="${debug}" source="1.6" destdir="${project.test.build}">
+			<classpath>
+      	<pathelement path="project.classpath"/>
+        <path path="${web.classes}"> </path>
+      </classpath>
+      <src path="${project.src.junit.tmp}"/>
+		</javac>
+
+  	<copy description="Copia os arquivos nao fonte para o diretorio de classes."
+  		todir="${project.test.build}">
+  		<fileset dir="${project.src.junit.tmp}" defaultexcludes="false">
+  			<exclude name="**/*.java"/>
+  		</fileset>
+		</copy>
+	</target>
+
+	<!-- target: junit -->
+	<target name="junit" depends="junit_compile" description="==> Executa os testes de unidade.">
+		<junit haltonerror="false" haltonfailure="false" printsummary="yes">
+    	<classpath>
+      	<path refid="project.classpath"/>
+    		<pathelement location="${web.classes}"/>
+  			<pathelement location="${project.test.build}"/>
+  			<pathelement location="${java.class.path}"/>
+  		</classpath>
+
+			<formatter type="xml"/>
+    	<batchtest fork="yes" todir="${project.docs.report}">
+      	<fileset dir="${project.src.junit.tmp}">
+        	<include name="**/*Test*.java"/>
+        	<exclude name="**/AllTests.java"/>
+        	<exclude name="**/Abstract*.java"/>
+				</fileset>
+			</batchtest>
+		</junit>
+
+  	<junitreport todir="${project.docs.report}">
+  	  <fileset dir="${project.docs.report}">
+  	    <include name="TEST-*.xml"/>
+  	  </fileset>
+  	  <report format="frames" todir="${project.docs.report}/html"/>
+  	</junitreport>
+	</target>
+</project>

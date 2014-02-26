@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'OfficinaSerifOSITCTTBold';
+    src: url('officinaserif.eot');
+    src: url('officinaserif.eot') format('embedded-opentype'),
+         url('officinaserif.woff') format('woff'),
+         url('officinaserif.ttf') format('truetype'),
+         url('officinaserif.svg#OfficinaSerifOSITCTTBold') format('svg');
+}
