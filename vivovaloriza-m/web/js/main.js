@@ -291,7 +291,11 @@ var app = function(){
 		        //city data
 		        console.log(city.short_name + " " + city.long_name);
 		        var uf = city.short_name;
-		       
+
+				  $("a.oferta-link").each(function() {
+					   var _href = $(this).attr("href"); 
+					   $(this).attr("href", _href + '&uf='+ uf );
+					});
 		        	
 		        } else {
 		          alert("No results found");
@@ -300,6 +304,10 @@ var app = function(){
 		        alert("Geocoder failed due to: " + status);
 		      }
 		    });
+		  },
+		  
+		  ufLink: function (){
+			  
 		  }
 		
 		

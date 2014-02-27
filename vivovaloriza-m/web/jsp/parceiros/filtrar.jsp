@@ -14,7 +14,9 @@
 <script type="text/javascript">  
 		 $(document).ready(function(){  
 			 app.home();
-			
+			app.ufLink();
+
+			 
 		
 		 });  
 	 </script> 
