@@ -154,7 +154,7 @@ var app = function(){
 			//chamando a funçao de geolocalização durante o splash 
 			app.initializeGeo();
 			
-			
+			$('#loginInput').removeAttr('disabled');
 			//Get the latitude and the longitude;
 			 setTimeout(function(){
 				 
@@ -301,15 +301,10 @@ var app = function(){
 		          alert("No results found");
 		        }
 		      } else {
-		        alert("Geocoder failed due to: " + status);
+		        alert("Não conseguimos descobrir onde está, ative o serviço localização deste dispositivo." + status);
 		      }
 		    });
-		  },
-		  
-		  ufLink: function (){
-			  
 		  }
-		
 		
 		
 	};

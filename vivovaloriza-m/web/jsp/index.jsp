@@ -14,19 +14,19 @@
 <s:include value="/web/jsp/head.jsp"></s:include>
 	<script type="text/javascript">  
 		 $(document).ready(function(){  
-			 $("input:checkbox:not(:checked)").bind ("change", function (event)
-				 {
-					 if($('#checkbox-termos').is(":not(:checked)"))
-
-						 {
-						 alert("Para aproveitar seus benefícios é necessário concordar com os termos e condições do programa de relacionamento Vivo Valoriza");
-						 //window.location.href = "http://www.vivo.com.br/portalweb/appmanager/env/web#";
-						 }
-						
-					
-		 		 });
+			 $(".enterBtn").click(function(event){
+				 if($('#checkbox-termos').is(":checked")){
+					 //console.log("true")
+				  	return true;
+				 }else{
+					 event.preventDefault();
+					 alert("Para aproveitar seus benefícios é necessário concordar com os termos e condições do programa de relacionamento Vivo Valoriza");
+					//console.log("false")
+				}
+				});
+		
 	 		 
-			 $('#checkbox-termos').prop('checked', true).checkboxradio('refresh');
+			 //$('#checkbox-termos').prop('checked', true).checkboxradio('refresh');
 			 
 			 var splash = $(document).find("#splash");
 			 var confirmation = "<s:property value='message'/>";
@@ -135,7 +135,7 @@
 		                </div>
 		
 		                    <a class="enterBtn black"  data-role="button"  data-transition="slide"  href="autenticarParticipante.action">
-		                    	<input type="submit" id="loginInput" value="Entrar" data-transition="slide" />
+		                    	<input type="submit" id="loginInput" value="Entrar" name="loginInput" data-transition="slide" />
 		                    </a>
 							<input type="checkbox" name="checkbox-termos" id="checkbox-termos" >
     						<label for="checkbox-termos"  class="right normalText termosLabel" >Li  e concordo com os termos de uso.</label>
