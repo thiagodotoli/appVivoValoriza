@@ -34,7 +34,7 @@
         <div data-role="content">
         <div class="sub-header">
             <h2 class="black">Benef&iacute;cios Exclusivos</h2>
-            <img id="imgIntro" src="<s:url value='/web/assets/images/homeImgVivoValorizaApp.png'/>" data-position="center" align="center" alt="Vivo Valoriza" />
+            <img id="imgIntro" src="<s:url value='/web/assets/images/mainImage.png'/>" data-position="center" align="center" alt="Vivo Valoriza" />
          </div>
             <div class="homeNav" data-role="navbar" data-iconpos="top">
                <ul>
@@ -45,7 +45,7 @@
                        </a>
                    </li>
                    <li>
-                       <a href="listarEspetaculosDesconto.action" data-transition="fade" data-theme=""  data-icon="minus">
+                       <a href="obterFiltroEspetaculosDesconto.action" data-transition="fade" data-theme=""  data-icon="minus">
                            <br />
                            Espet&aacute;culos com Desconto
                        </a>

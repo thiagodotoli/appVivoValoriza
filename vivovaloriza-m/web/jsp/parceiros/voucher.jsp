@@ -19,7 +19,7 @@
     	<!-- HEADER -->
        <div data-role="header" data-fullscreen="true">
            <div id="headerBox">
-             <a href="home.action" class="logo"><span class="iconVoltar" ></span><h3>Retornar aos <br /> benef&iacute;cios</h3></a>
+             <a href="obterFiltrosParceiro.action" class="back"><span class="iconVoltar" ></span><h2>Voltar</h2></a>
            </div>
        </div>
        <!-- /header -->
@@ -40,13 +40,13 @@
                   <div class="voucher">
                      <img src="<s:property value='anFiguraDetNomeArq'/>" />
                      <h3 class="branco"><s:property value='anParceiro'/></h3>
- 	                 <p class="branco"><s:property value='anLegenda'/></p>
+ 	                 <p class="branco"><s:property value='dtIniVoucher'/></p>
                   </div> 
                   
                   <div class="voucher-descr-confirma">
                      <div id="dadosCliente">
-                        <span id="codiLabel">Relacionamento:</span>
-                        <span id="codiRelac"><s:property value='cnRelacionamento'/></span>   <br/>
+                        <span id="nomeLabel">Relacionamento:</span>
+                        <span id="nomeCliente"><s:property value='cnRelacionamento'/></span>   <br/>
                         <span id="nomeLabel">Nome:</span>
                         <span id="nomeCliente"><s:property value='anNome'/></span>   <br/>
                         <span id="dataLabel">Emitido em: </span>
@@ -54,7 +54,7 @@
                      </div>
                      
                      <p id="dadosEvento">
-	                   <s:property value='dtIniVoucher'/>
+	                   <s:property value='anLegenda'/>
                      </p>
                      <img id="img-voucher" src="<s:url value='/web/assets/images/img-bottom-voucher.png'/>" data-position="center" align="center " alt="Vivo Valoriza" />
                      <br/>

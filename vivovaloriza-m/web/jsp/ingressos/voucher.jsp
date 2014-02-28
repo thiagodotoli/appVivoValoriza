@@ -19,7 +19,7 @@
       <!-- HEADER -->
       <div data-role="header" data-fullscreen="true">
          <div id="headerBox">
-          <a href="home.action" class="logo"><span class="iconVoltar" ></span><h3>Retornar aos <br /> benef&iacute;cios</h3></a>
+          <a href="obterEventosDisponiveis.action?caTpEvento=<s:property value='caTpEvento'/>" class="logo"><span class="iconVoltar" ></span><h3>Retornar para <br /> lista</h3></a>
          </div>
       </div>
       <!-- /header -->

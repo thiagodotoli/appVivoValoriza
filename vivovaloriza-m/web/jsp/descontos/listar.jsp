@@ -11,7 +11,6 @@
 
 <head>
 <s:include value="/web/jsp/head.jsp"></s:include>
-
 </head>
 
 <body>
@@ -20,7 +19,7 @@
 		<!-- HEADER -->
 		<div data-role="header" data-fullscreen="true">
 		   <div id="headerBox">
-		    <a href="home.action" class="logo"><span class="iconVoltar" ></span><h3>Retornar aos <br /> benefícios</h3></a>
+		    <a href="obterFiltroEspetaculosDesconto.action" class="logo"><span class="iconVoltar" ></span><h3>Retornar aos <br /> benefícios</h3></a>
 		   </div>
 		</div>
 		<!-- /header -->
@@ -35,9 +34,9 @@
   
   				<s:iterator value="especatuloDesconto">
           <li class="oferta-item" data-theme="">
-	          <a class="oferta-link" href="exibirEspetaculoDesconto.action?cnSeq=<s:property value='cnSeq'/>">
+	          <a class="oferta-link" href="obterEspetaculoSinopse.action?cnSeq=<s:property value='cnSeq'/>">
 	           	<div class="oferta-data">
-	            <img src="<s:property value='anImagem'/>" />
+	            <img src="<s:property value='anFiguraDetNomeArq'/>" />
 	            <h3 class="cinzaText"><s:property value='anTitulo'/></h3>
 	            <p class="roxo"><s:property value='anSubTitulo'/></p>
 	            <span class="laranja right">saiba mais</span>

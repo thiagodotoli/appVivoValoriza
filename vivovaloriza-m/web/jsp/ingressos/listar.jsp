@@ -11,6 +11,12 @@
 
 <head>
 <s:include value="/web/jsp/head.jsp"></s:include>
+
+<script type="text/javascript">  
+	$(document).ready(function(){
+		app.initializeGeo();			
+	});
+</script>
 </head>
 
 <body>

@@ -12,14 +12,10 @@
 <head>
 <s:include value="/web/jsp/head.jsp"></s:include>
 <script type="text/javascript">  
-		 $(document).ready(function(){  
-			 app.home();
-			app.ufLink();
-
-			 
-		
-		 });  
-	 </script> 
+	$(document).ready(function(){  
+		app.home();
+	});  
+</script>
 </head>
 
 <body>
@@ -54,6 +50,7 @@
         
     </div>
     <!-- /content -->
+    
 	</div>
 </body>
 </html>

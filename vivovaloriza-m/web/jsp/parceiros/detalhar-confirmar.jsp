@@ -41,16 +41,17 @@
 	               <div class="voucher">
 	                  <img src="<s:property value='anFiguraDetNomeArq'/>" />
 	                  <h3 class="branco"><s:property value='anParceiro'/></h3>
-	                  <p class="branco"><s:property value='anLegenda'/></p>
 	               </div> 
 	            </a> 
 	         </li>
 	      </ul>
 	      
 	      <div class="voucher-descr">
-	         <p id="dadosEvento">
-    	      	<s:property value='anRegulamento'/>
-	         </p>
+            <s:property value='anLegenda'/>
+   	      	<br/><br/><br/><br/>
+   	      	<p class="vermelho">REGULAMENTO</p>
+   	      	<br/><br/>
+   	      	<p class="laranja right"><s:property value='anRegulamento'/></p>
 	         <img id="imgIntro" src="<s:url value='/web/assets/images/img-bottom-voucher.png'/>" data-position="center" align="center " alt="Vivo Valoriza" />
 	      </div>
 	              

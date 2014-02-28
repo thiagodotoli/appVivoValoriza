@@ -18,7 +18,7 @@
       <!-- HEADER -->
       <div data-role="header" data-fullscreen="true">
          <div id="headerBox">
-           <a class="logo" href="listarEspetaculosDesconto.action"><span class="iconVoltar" ></span><h2>Voltar</h2></a>
+           <a class="logo" href="obterEspetaculosMural.action"><span class="iconVoltar" ></span><h2>Voltar</h2></a>
          </div>
       </div>
       <!-- /header -->
@@ -30,7 +30,7 @@
 	      </div>
 
 	      <div id="confirmaBox">
-	         <a class="confirmaBtn branco" data-inset="true"  data-role="button"  href="emitirVoucherEspetaculoDesconto.action?cnSeq=<s:property value='cnSeq'/>">
+	         <a class="confirmaBtn branco" data-inset="true"  data-role="button"  href="obterEspetaculoVoucher.action?cnSeq=<s:property value='cnSeq'/>">
 	            <input type='submit'class="branco submitInout" value="Confirmar"/>
 	         </a>
 	      </div>
@@ -39,7 +39,7 @@
 	         <li class="voucher-item" data-theme="">
 	            <a class="oferta-link-voucher"  >
 	               <div class="voucher">
-	                  <img src="<s:property value='anImagem'/>" />
+	                  <img src="<s:property value='anFiguraDetNomeArq'/>" />
 	                  <h3 class="branco"><s:property value='anTitulo'/></h3>
 	                  <p class="branco"><s:property value='anSubTitulo'/></p>
 	               </div> 
@@ -49,7 +49,7 @@
 	      
 	      <div class="voucher-descr">
 	         <p id="dadosEvento">
-	            <s:property value='anDesc'/>
+	            <s:property value='anDescricao'/>
 	         </p>
 	         <img id="imgIntro" src="<s:url value='/web/assets/images/img-bottom-voucher.png'/>" data-position="center" align="center " alt="Vivo Valoriza" />
 	      </div>

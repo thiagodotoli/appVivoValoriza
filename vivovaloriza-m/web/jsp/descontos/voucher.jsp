@@ -19,7 +19,7 @@
       <!-- HEADER -->
       <div data-role="header" data-fullscreen="true">
          <div id="headerBox">
-           <a href="home.action" class="logo"><span class="iconVoltar" ></span><h3>Retornar aos <br /> benef&iacute;cios</h3></a>
+           <a class="logo" href="obterEspetaculosMural.action"><span class="iconVoltar" ></span><h2>Voltar</h2></a>
          </div>
       </div>
       <!-- /header -->
@@ -38,7 +38,7 @@
             <li class="voucher-item" data-theme="">
                <a class="oferta-link-espetaculo"  >
                   <div class="voucher">
-                     <img src="<s:property value='anImagem'/>" />
+                     <img src="<s:property value='anFiguraDetNomeArq'/>" />
                      <h3 class="branco"><s:property value='anTitulo'/></h3>
                      <p class="branco"><s:property value='anSubTitulo'/></p>
                   </div> 
@@ -46,15 +46,15 @@
                   <div class="voucher-descr-confirma">
                      <div id="dadosCliente">
                         <span id="nomeLabel">Nome:</span>
-                        <span id="nomeCliente"><s:property value='anNome'/></span>   <br/>
+                        <span id="nomeCliente"><s:property value='anNomeParticipante'/></span>   <br/>
                         <span id="dataLabel">Emitido em: </span>
-                        <span id="dataEmissao"><s:property value='dtVoucher'/></span> <br/>
+                        <span id="dataEmissao"><s:property value='dtEmissao'/></span> <br/>
                         <span id="voucherLabel">Código Voucher: </span>
                         <span id="voucherCodigo"><s:property value='cnVoucher'/></span> 
                      </div>
                      
                      <p id="dadosEvento">
-                        <s:property value='anDesc'/>
+                        <s:property value='anDescricao'/>
                      </p>
                      <img id="img-voucher" src="<s:url value='/web/assets/images/img-bottom-voucher.png'/>" data-position="center" align="center " alt="Vivo Valoriza" />
                      <br/>
