@@ -50,9 +50,9 @@ public class AutenticarParticipanteAction {
 			String xml = "";
 			if(SOAP_URL.equals("LOCAL")) {
 				xml = "<"+actionName+"Response>" +
-						"<anNome>THIAGO DOTOLI BENTO</anNome>" +
+						"<anNome></anNome>" +
 						"<dtUltimoAcesso>2014-01-31 21:33:22</dtUltimoAcesso>" +
-						"<caDoc>30256219826</caDoc>" +
+						"<caDoc></caDoc>" +
 						"<autorizacoes></autorizacoes>" +
 						"<resultadoProcessamento><nmLinhasAfetadas>1</nmLinhasAfetadas><cnRetorno>0</cnRetorno><anDescricaoRetorno></anDescricaoRetorno><anMensagemAlerta></anMensagemAlerta><anProcedure>PRC_INT_TVG_RESP_XML_AUTENTICA</anProcedure><cnErroOracle>0</cnErroOracle><anErroOracle></anErroOracle></resultadoProcessamento></"+actionName+"Response>";				
 			} else {					
@@ -68,7 +68,7 @@ public class AutenticarParticipanteAction {
 	        if( autenticarParticipanteResponse.getResultadoProcessamento().getCnRetorno() == 0 ) {
 	        	session.setAttribute(Constantes.BEAN_PARTICIPANTE_AUTENTICADO, autenticarParticipanteResponse);
 	        } else {
-	        	setMessage("Login ou Senha inv·lidos!");
+	        	setMessage("Login ou Senha inv√°lidos!");
 	        	STRUTS2_RETURN = "LOGIN";
 	        }
 
